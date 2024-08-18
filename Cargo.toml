@@ -13,8 +13,8 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-rocksdb = { version = "0.17.0", features = ["snappy", "lz4", "zstd", "zlib", "bzip2"] }
-pyo3 = { version = "0.12.0", features = ["extension-module"] }
+rocksdb = { version = "0.22.0", features = ["snappy", "lz4", "zstd", "zlib", "bzip2"] }
+pyo3 = { version = "0.12.4", features = ["extension-module"] }
 
 [package.metadata.maturin]
 classifier = [
@@ -30,4 +30,6 @@ classifier = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]

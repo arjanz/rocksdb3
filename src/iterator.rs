@@ -42,7 +42,7 @@ impl PyIterProtocol for RocksDBIterator {
 
     fn __next__(mut slf: PyRefMut<Self>) -> PyResult<Option<PyObject>> {
         let iter = slf.iter.inner.next();
-        for (key, value) in iter {
+        while let Some(Ok((key, value))) = iter {
             let py = slf.py();
             return Ok(Some(
                 PyTuple::new(
