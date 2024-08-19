@@ -31,7 +31,7 @@ jobs:
     - name: Run tests
       run: |
         pip install pytest
-        pytest ./test
+        pytest ./tests
   linux:
     name: Build on Linux
     runs-on: ubuntu-latest
