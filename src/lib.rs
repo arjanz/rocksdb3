@@ -188,7 +188,7 @@ fn rocksdb3(_py: Python, m: &PyModule) -> PyResult<()> {
     ///
     /// Positional arguments:
     /// - `path` (required): Path of the database to open.
-    #[pyfn(m, "open_default")]
+    #[pyfn(m)]
     fn open_default(path: &str) -> PyResult<RocksDB> {
         match DB::open_default(path) {
             Ok(db) => Ok(RocksDB {
@@ -209,7 +209,7 @@ fn rocksdb3(_py: Python, m: &PyModule) -> PyResult<()> {
     /// Positional arguments:
     /// - `path` (required): Path of the database to open.
     /// - `duration` (required): Duration of the TTL.
-    #[pyfn(m, "open_with_ttl")]
+    #[pyfn(m)]
     fn open_with_ttl(path: &str, ttl: &PyInt) -> PyResult<RocksDB> {
         let secs = ttl.extract::<u64>().unwrap();
         let duration = Duration::from_secs(secs);
@@ -236,7 +236,7 @@ fn rocksdb3(_py: Python, m: &PyModule) -> PyResult<()> {
     /// Positional arguments:
     /// - `primary_path` (required): Path of the primary database instance.
     /// - `secondary_path` (required): Path of the secondary database to open.
-    #[pyfn(m, "open_as_secondary")]
+    #[pyfn(m)]
     fn open_as_secondary(primary_path: &str, secondary_path: &str) -> PyResult<RocksDB> {
         match DB::open_as_secondary(&Options::default(), primary_path, secondary_path) {
             Ok(db) => Ok(RocksDB {
@@ -261,7 +261,7 @@ fn rocksdb3(_py: Python, m: &PyModule) -> PyResult<()> {
     ///
     /// Positional arguments:
     /// - `path` (required): Path of the database to repair.
-    #[pyfn(m, "repair")]
+    #[pyfn(m)]
     fn repair(path: &str) -> PyResult<()> {
         match DB::repair(&Options::default(), path) {
             Ok(()) => Ok(()),
@@ -279,7 +279,7 @@ fn rocksdb3(_py: Python, m: &PyModule) -> PyResult<()> {
     ///
     /// Positional arguments:
     /// - `path` (required): Path of the database to destroy.
-    #[pyfn(m, "destroy")]
+    #[pyfn(m)]
     fn destroy(path: &str) -> PyResult<()> {
         match DB::destroy(&Options::default(), path) {
             Ok(()) => Ok(()),

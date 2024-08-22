@@ -1,3 +1,23 @@
 [build-system]
 requires = ["maturin>=0.14,<0.15"]
 build-backend = "maturin"
+
+[project]
+name = "rocksdb3"
+version = "0.1.0"
+description = "RocksDB bindings"
+readme = "README.md"
+
+authors = [
+    { name = "JAMdot Technologies", email = "devops@jamdot.tech" }
+]
+
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+
