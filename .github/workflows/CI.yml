@@ -112,7 +112,6 @@ jobs:
 
   macos:
     runs-on: ${{ matrix.platform.runner }}
-    needs: test
     strategy:
       matrix:
         platform:
